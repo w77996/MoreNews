@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 
 import com.a77996.morenews.morenews.homepage.DoubanMomentFragment;
+import com.a77996.morenews.morenews.homepage.GuokrMomentFragment;
 import com.a77996.morenews.morenews.homepage.ZhihuDailyFragment;
 
 /**
@@ -15,23 +16,28 @@ import com.a77996.morenews.morenews.homepage.ZhihuDailyFragment;
 public class MainPagerApdapter extends FragmentPagerAdapter{
     private  DoubanMomentFragment doubanMomentFragment;
     private  ZhihuDailyFragment zhihuDailyFragment;
+    private GuokrMomentFragment guokrMomentFragment;
     private Context context;
     private String[] titles;
-    public MainPagerApdapter(FragmentManager fm, Context context, ZhihuDailyFragment zhihuDailyFragment, DoubanMomentFragment doubanMomentFragment) {
+    public MainPagerApdapter(FragmentManager fm, Context context, ZhihuDailyFragment zhihuDailyFragment, GuokrMomentFragment guokrMomentFragment,DoubanMomentFragment doubanMomentFragment) {
         super(fm);
         this.context = context;
-        titles = new String[]{"知乎日报","豆瓣一刻"};
+        titles = new String[]{"知乎日报","果壳精选","豆瓣一刻"};
 
         this.zhihuDailyFragment = zhihuDailyFragment;
         this.doubanMomentFragment = doubanMomentFragment;
+        this.guokrMomentFragment = guokrMomentFragment;
+
         //this.guokrFragment = guokrFragment;
     }
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 1){
+        if (position == 0){
             return zhihuDailyFragment;
-        } else if (position == 2){
+        } else if (position == 1){
+            return guokrMomentFragment;
+        }else if(position==2){
             return doubanMomentFragment;
         }
         return null;
