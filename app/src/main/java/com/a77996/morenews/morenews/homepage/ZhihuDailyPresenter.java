@@ -83,11 +83,11 @@ public class ZhihuDailyPresenter implements ZhihuDailyContract.Presenter {
 
     @Override
     public void startReading(int position) {
-        /*context.startActivity(new Intent(context, DetailActivity.class)
+        context.startActivity(new Intent(context, DetailActivity.class)
                 .putExtra("type", BeanType.TYPE_ZHIHU)
                 .putExtra("id", list.get(position).getId())
                 .putExtra("title", list.get(position).getTitle())
-                .putExtra("coverUrl", list.get(position).getImages().get(0)));*/
+                .putExtra("coverUrl", list.get(position).getImages().get(0)));
         Logger.d(list.get(position).toString());
     }
 

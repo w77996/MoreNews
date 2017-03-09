@@ -14,6 +14,7 @@ interface DetailContract {
         void stopLoading();
         void showLoadingError();
         void showResult(String result);
+        void showHtml(String result);
         void showCovert(String url);
         void setTitle(String title);
         void setImageMode(boolean imageMode);

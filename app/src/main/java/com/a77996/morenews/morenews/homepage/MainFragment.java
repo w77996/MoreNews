@@ -25,10 +25,11 @@ public class MainFragment extends Fragment{
     private TabLayout tabLayout;
 
     private ZhihuDailyFragment zhihuDailyFragment;
-    private GuokrMomentFragment guokrMomentFragment;
+    private GuokrFragment guokrMomentFragment;
     private DoubanMomentFragment doubanMomentFragment;
 
     private ZhihuDailyPresenter zhihuDailyPresenter;
+    private GuokrPresenter guokrPresenter;
     public MainFragment(){};
     public static MainFragment newInstance(){
         return new MainFragment();
@@ -40,8 +41,9 @@ public class MainFragment extends Fragment{
         this.context = getActivity();
         zhihuDailyFragment = ZhihuDailyFragment.newInstance();
         doubanMomentFragment = DoubanMomentFragment.newInstance();
-        guokrMomentFragment = GuokrMomentFragment.newInstance();
+        guokrMomentFragment = GuokrFragment.newInstance();
         zhihuDailyPresenter = new ZhihuDailyPresenter(context,zhihuDailyFragment);
+        guokrPresenter = new GuokrPresenter(context,guokrMomentFragment);
     }
 
     @Nullable
