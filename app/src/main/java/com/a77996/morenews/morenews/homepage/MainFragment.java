@@ -30,7 +30,7 @@ public class MainFragment extends Fragment{
 
     private ZhihuDailyPresenter zhihuDailyPresenter;
     private GuokrPresenter guokrPresenter;
-    public MainFragment(){};
+    private DoubanMomentPresenter doubanMomentPresenter;
     public static MainFragment newInstance(){
         return new MainFragment();
     }
@@ -42,8 +42,10 @@ public class MainFragment extends Fragment{
         zhihuDailyFragment = ZhihuDailyFragment.newInstance();
         doubanMomentFragment = DoubanMomentFragment.newInstance();
         guokrMomentFragment = GuokrFragment.newInstance();
+        doubanMomentPresenter = new DoubanMomentPresenter(context,doubanMomentFragment);
         zhihuDailyPresenter = new ZhihuDailyPresenter(context,zhihuDailyFragment);
         guokrPresenter = new GuokrPresenter(context,guokrMomentFragment);
+
     }
 
     @Nullable

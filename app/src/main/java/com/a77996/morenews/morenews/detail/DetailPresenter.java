@@ -4,6 +4,7 @@ import android.content.Context;
 import android.webkit.WebView;
 
 import com.a77996.morenews.morenews.bean.BeanType;
+import com.a77996.morenews.morenews.bean.DoubanMomentStory;
 import com.a77996.morenews.morenews.bean.StringModelImpl;
 import com.a77996.morenews.morenews.bean.ZhihuDailyStory;
 import com.a77996.morenews.morenews.interfaze.onStringListener;
@@ -102,6 +103,27 @@ public class DetailPresenter implements DetailContract.Presenter {
                        // view.showResult(guokrStory);
                         view.showHtml(result);
                         Logger.d(result);
+                        view.stopLoading();
+                    }
+
+                    @Override
+                    public void onError(VolleyError error) {
+                        view.showLoadingError();
+                        view.stopLoading();
+                    }
+                });
+                break;
+            case TYPE_DOUBAN:
+                stringModel.load(Api.DOUBAN_ARTICLE_DETAIL + id, new onStringListener() {
+                    @Override
+                    public void onSuccess(String result) {
+                        // convertGuokrContent(result);
+                        // view.showResult(guokrStory);
+                      DoubanMomentStory doubanMomentStory = gson.fromJson(result, DoubanMomentStory.class);
+                        view.showResult(doubanMomentStory.getShort_url());
+                      //  view.showHtml(result);
+                        Logger.d(result);
+                        Logger.d(doubanMomentStory.getShort_url());
                         view.stopLoading();
                     }
 
